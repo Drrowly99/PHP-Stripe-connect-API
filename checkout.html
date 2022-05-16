@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Accept a card payment</title>
+    <meta name="description" content="A demo of a card payment on Stripe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="global.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="/client.js" defer></script>
+  </head>
+
+  <body style=" box-shadow: 0px 2px 5px 0px rgb(222 222 222 / 33%), 0px 4px 6px 0 rgb(255 255 255 / 19%);max-width: 600px; width:100%;height:100vh;margin:auto;">
+    <!-- Display a payment form -->
+    <div style="width:400px;height:60px;margin:0 0 50px 0;text-align:center;"> 
+<?php echo $_SESSION['total']; ?>
+    Cash Out Payment</div>
+    <form id="payment-form">
+      <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+      <button id="submit">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Pay With Stripe</span>
+      </button>
+      <p id="card-error" role="alert"></p>
+      <p class="result-message hidden">
+        Payment succeeded, see the result in your
+        <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+      </p>
+    </form>
+  </body>
+</html>
